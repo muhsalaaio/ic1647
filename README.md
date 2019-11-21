@@ -1,7 +1,9 @@
 ### 1. install the dependencies
 
-yarn
+`yarn`
 
 ### 2. run server
 
-yarn start
+`yarn start`
+
+server will run at http://localhost:3002
