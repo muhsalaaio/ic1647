@@ -30,7 +30,7 @@ const cards = Vue.component('card-component', {
           resp.data.map(function(item) { item.avatar = `https://picsum.photos/id/${randomIntFromInterval(1, 20)}/200/200` });
           this.users = resp.data;
         })
-        .catch(function() {
+        .catch(function(err) {
           console.log(err);
         })
     }
