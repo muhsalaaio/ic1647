@@ -26,12 +26,12 @@ const cards = Vue.component('card-component', {
   methods: {
     populate() {
       axios.get('https://jsonplaceholder.typicode.com/users')
-        .then(resp => {
-          resp.data.map(item => item.avatar = `https://picsum.photos/id/${randomIntFromInterval(1, 20)}/200/200`)
+        .then(function(resp) {
+          resp.data.map(function(item) { item.avatar = `https://picsum.photos/id/${randomIntFromInterval(1, 20)}/200/200` });
           this.users = resp.data;
         })
-        .catch(err => {
-          console.log(err)
+        .catch(function() {
+          console.log(err);
         })
     }
   },
@@ -52,10 +52,10 @@ const VComponent = Vue.component('hello-component', {
   methods: {
     populate() {
       axios.get('https://jsonplaceholder.typicode.com/users')
-        .then(resp => {
+        .then(function() {
           this.users = resp.data;
         })
-        .catch(err => {
+        .catch(function(err) {
           console.log(err)
         })
     }
@@ -77,10 +77,10 @@ const VComponent2 = Vue.component('hello-component2', {
   methods: {
     populate() {
       axios.get('https://jsonplaceholder.typicode.com/posts')
-        .then(resp => {
+        .then(function(resp) {
           this.posts = resp.data;
         })
-        .catch(err => {
+        .catch(function(err) {
           console.log(err)
         })
     }
@@ -104,10 +104,10 @@ const VComponent3 = Vue.component('hello-component3', {
   methods: {
     populate() {
       axios.get('https://jsonplaceholder.typicode.com/photos')
-        .then(resp => {
+        .then(function (resp) {
           this.photos = resp.data.slice(0, 50);
         })
-        .catch(err => {
+        .catch(function(err) {
           console.log(err)
         })
     }
@@ -122,7 +122,7 @@ routerApp.config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
     .state('pageOne', {
       url: '/pageOne',
-      templateUrl: 'templates/pageOne.html',
+      templateUrl: 'templates/pageOne.html'
     })
     .state('pageTwo', {
       url: '/pageTwo',
