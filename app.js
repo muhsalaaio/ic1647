@@ -25,10 +25,11 @@ const cards = Vue.component('card-component', {
   },
   methods: {
     populate() {
+      const upperScope = this;
       axios.get('https://jsonplaceholder.typicode.com/users')
         .then(function(resp) {
           resp.data.map(function(item) { item.avatar = `https://picsum.photos/id/${randomIntFromInterval(1, 20)}/200/200` });
-          this.users = resp.data;
+          upperScope.users = resp.data;
         })
         .catch(function(err) {
           console.log(err);
@@ -51,9 +52,10 @@ const VComponent = Vue.component('hello-component', {
   },
   methods: {
     populate() {
+      const upperScope = this;
       axios.get('https://jsonplaceholder.typicode.com/users')
-        .then(function() {
-          this.users = resp.data;
+        .then(function(resp) {
+          upperScope.users = resp.data;
         })
         .catch(function(err) {
           console.log(err)
@@ -76,9 +78,10 @@ const VComponent2 = Vue.component('hello-component2', {
   },
   methods: {
     populate() {
+      const upperScope = this;
       axios.get('https://jsonplaceholder.typicode.com/posts')
         .then(function(resp) {
-          this.posts = resp.data;
+          upperScope.posts = resp.data;
         })
         .catch(function(err) {
           console.log(err)
@@ -103,9 +106,10 @@ const VComponent3 = Vue.component('hello-component3', {
   },
   methods: {
     populate() {
+      const upperScope = this;
       axios.get('https://jsonplaceholder.typicode.com/photos')
         .then(function (resp) {
-          this.photos = resp.data.slice(0, 50);
+          upperScope.photos = resp.data.slice(0, 50);
         })
         .catch(function(err) {
           console.log(err)
