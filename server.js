@@ -1,12 +1,12 @@
-var express    = require("express");
-var app        = express();
-
-var port = process.env.PORT || 3000;
+const express    = require("express");
+const path = require('path');
+const port = process.env.PORT || 3000;
+const app        = express();
 
 app.use(express.static(__dirname + "./build"));
 
-app.get("/", function(req, res) {
-    res.sendFile(path.resolve(__dirname, 'index.html')); 
+app.get('*', (req, res) => {
+res.sendFile(path.resolve(__dirname, 'index.html'));
 });
 
 // Start Server
