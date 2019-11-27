@@ -4,6 +4,8 @@ function randomIntFromInterval(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
+// yesterday im still on ic-1647, editing the prototype, and investigate converse app on IE,
+// today will replicate the case of converse with edited prototype
 
 
 const bigCards = Vue.component('big-card-component', {
