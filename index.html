@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="app">
 <head>
 
     <!-- CSS (load bootstrap) -->
@@ -11,34 +11,26 @@
     <style>
         .navbar { border-radius:0; }
     </style>
-
-    <!-- JS (load angular, ui-router, and our custom js file) -->
-    <script src="./node_modules/angular/angular.js"></script>
-    <script src="./node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
-    <script src="./node_modules/vue/dist/vue.js"></script>
-    <script src="./node_modules/ngVue/build/index.js"></script>
-    <script src="./node_modules/axios/dist/axios.min.js"></script>
-    <script type="module" src="app.js"></script>
 </head>
 
 <!-- apply our angular app to our site -->
-<body ng-app="routerApp">
+<body>
 
 <!-- NAVIGATION -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="navbar-header">
         <a class="navbar-brand text-white">IC-1647</a>
     </div>
     <ul class="navbar-nav">
-        <li><a class="nav-link" ui-sref="pageOne">Page 1</a></li>
-        <li><a class="nav-link" ui-sref="pageTwo">Page 2</a></li>
-        <li><a class="nav-link" ui-sref="pageThree">Page 3</a></li>
+        <li><a class="nav-link" ui-sref-active="active" ui-sref="pageOne">Page 1</a></li>
+        <li><a class="nav-link" ui-sref-active="active" ui-sref="pageTwo">Page 2</a></li>
+        <li><a class="nav-link" ui-sref-active="active" ui-sref="pageThree">Page 3</a></li>
     </ul>
 </nav>
 
 <!-- MAIN CONTENT -->
 <div class="container">
-    <div ui-view></div>
+    <div ui-view="container"></div>
 </div>
 
 </body>
