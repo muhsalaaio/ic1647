@@ -1,4 +1,4 @@
-const routerApp = angular.module('routerApp', ['ui.router', 'ngVue']);
+var routerApp = angular.module('routerApp', ['ui.router', 'ngVue']);
 
 function randomIntFromInterval(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
@@ -9,7 +9,7 @@ function randomIntFromInterval(min, max) {
 // the app wont be opened in ie11
 
 
-const bigCards = Vue.component('big-card-component', {
+var bigCards = Vue.component('big-card-component', {
   template:`
   <div>
   <div class="card mb-2" v-for="(item, index) in photosData">
@@ -50,7 +50,7 @@ const bigCards = Vue.component('big-card-component', {
   },
 });
 
-const cards = Vue.component('card-component', {
+var cards = Vue.component('card-component', {
   template: `
   <div class="row">
     <div class="col-md-3" v-for='user in users'>
@@ -71,10 +71,10 @@ const cards = Vue.component('card-component', {
   },
   methods: {
     populate() {
-      const upperScope = this;
+      var upperScope = this;
       axios.get('https://jsonplaceholder.typicode.com/users')
         .then(function(resp) {
-          resp.data.map(function(item) { item.avatar = `https://picsum.photos/id/${randomIntFromInterval(1, 20)}/200/200` });
+          resp.data.map(function(item) { item.avatar = 'https://picsum.photos/id/' + randomIntFromInterval(1, 20) + '/200/200' });
           upperScope.users = resp.data;
         })
         .catch(function(err) {
@@ -87,7 +87,7 @@ const cards = Vue.component('card-component', {
   }
 });
 
-const carousel = Vue.component('carousel-component', {
+var carousel = Vue.component('carousel-component', {
   template: `
     <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">
@@ -137,7 +137,7 @@ const carousel = Vue.component('carousel-component', {
   },
 });
 
-const VComponent = Vue.component('hello-component', {
+var VComponent = Vue.component('hello-component', {
   template: `<div>
     <div class='text-center bg-info mb-2 p-1' v-for='user in users'>{{ user.name }}</div>
   </div>`,
@@ -148,7 +148,7 @@ const VComponent = Vue.component('hello-component', {
   },
   methods: {
     populate() {
-      const upperScope = this;
+      var upperScope = this;
       axios.get('https://jsonplaceholder.typicode.com/users')
         .then(function(resp) {
           upperScope.users = resp.data;
@@ -163,7 +163,7 @@ const VComponent = Vue.component('hello-component', {
   }
 });
 
-const VComponent2 = Vue.component('hello-component2', {
+var VComponent2 = Vue.component('hello-component2', {
   template: `<div>
     <div class='text-center bg-success mb-2 p-1' v-for='post in posts'>{{ post.body }}</div>
   </div>`,
@@ -174,7 +174,7 @@ const VComponent2 = Vue.component('hello-component2', {
   },
   methods: {
     populate() {
-      const upperScope = this;
+      var upperScope = this;
       axios.get('https://jsonplaceholder.typicode.com/posts')
         .then(function(resp) {
           upperScope.posts = resp.data;
@@ -189,7 +189,7 @@ const VComponent2 = Vue.component('hello-component2', {
   }
 });
 
-const VComponent3 = Vue.component('hello-component3', {
+var VComponent3 = Vue.component('hello-component3', {
   template: `<div>
     <div class='text-center bg-light mb-2 p-1' v-for='photo in photos'>
       <img :src="photo.thumbnailUrl" />
@@ -202,7 +202,7 @@ const VComponent3 = Vue.component('hello-component3', {
   },
   methods: {
     populate() {
-      const upperScope = this;
+      var upperScope = this;
       axios.get('https://jsonplaceholder.typicode.com/photos')
         .then(function (resp) {
           upperScope.photos = resp.data.slice(0, 50);
